@@ -1,23 +1,19 @@
 let myLibrary = []
 
-function Book(title, author, numpages, read) {
-  
-  // the constructor...
-  this.title = title;
-  this.author = author;
-  this.numpages = numpages;
-  this.read = read;
+class Book {
 
+	constructor(title, author, numpages, read) {
+		this.title = title;
+		this.author = author;
+		this.numpages = numpages;
+		this.read = read;
+	}
 }
 
 function addBookToLibrary(book, library) {
 
   library.push(book);
   return library;
-
-}
-
-function toggleReadStatus(library, index) {
 
 }
 
@@ -41,7 +37,7 @@ function render(object) {
 		}
 		readStatus.addEventListener('click', function() {
 			myLibrary[index].read = !myLibrary[index].read;
-			render(myLibrary);
+			render(myLibrary);  
 		}, false);
 		line.appendChild(readStatus);
 
@@ -53,18 +49,18 @@ function render(object) {
 			render(myLibrary);
 		}, false);
 		line.appendChild(removal);
-		
+
 		div.appendChild(line);
 	}
+	
 	document.body.appendChild(div);
 
 };
 
 $(".newbook").click(function() {
-
 	$("form").show();
-
 });
+
 
 $(".submitbook").click(function() {
 
