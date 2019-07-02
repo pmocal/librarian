@@ -20,7 +20,6 @@ function addBookToLibrary(book, library) {
 function render(object) {
 
 	$("#myLibrary").remove();
-
 	var div = document.createElement("div");
 	div.setAttribute('id', "myLibrary");
 
@@ -52,22 +51,23 @@ function render(object) {
 
 		div.appendChild(line);
 	}
+	console.log(div)
 	
 	document.body.appendChild(div);
 
 };
 
 $(".newbook").click(function() {
+
 	$("form").show();
+
 });
 
-
-$(".submitbook").click(function() {
-
-	console.log(document.getElementById("read").getAttribute("checked"));
-	var book = new Book($("#author").val(), $("#title").val(), $("#numpages").val(), document.getElementById("read").checked);
+function myFunction(){
+	var book = new Book(document.getElementById("author").value, document.getElementById("title").value,
+		document.getElementById("numpages").value, document.getElementById("read").checked);
 	addBookToLibrary(book, myLibrary);
 	render(myLibrary);
+	console.log(myLibrary);
 	$("form").hide();
-
-});
+}
